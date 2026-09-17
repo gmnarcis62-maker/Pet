@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RedLine Pet</string>
+    <string name="nav_pets">حیوانات من</string>
+    <string name="nav_health">پرونده سلامت</string>
+    <string name="nav_expenses">هزینه‌ها</string>
+    <string name="nav_settings">تنظیمات</string>
+    <string name="currency_toman">تومان</string>
+    <string name="add_pet">افزودن حیوان جدید</string>
+</resources>

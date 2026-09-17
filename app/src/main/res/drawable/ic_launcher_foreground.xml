@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center Paw Pad -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,52 C45,52 38,59 40,68 C41,74 47,78 54,78 C61,78 67,74 68,68 C70,59 63,52 54,52 Z" />
+
+    <!-- Toe 1 (Leftmost) -->
+    <path
+        android:fillColor="#F0F0F0"
+        android:pathData="M37,47 C34.5,47 32.5,49.5 32.5,52.5 C32.5,55.5 34.5,58 37,58 C39.5,58 41.5,55.5 41.5,52.5 C41.5,49.5 39.5,47 37,47 Z" />
+
+    <!-- Toe 2 (Center Left) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M46,39 C43.5,39 41.5,41.8 41.5,45.2 C41.5,48.6 43.5,51.4 46,51.4 C48.5,51.4 50.5,48.6 50.5,45.2 C50.5,41.8 48.5,39 46,39 Z" />
+
+    <!-- Toe 3 (Center Right) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M62,39 C59.5,39 57.5,41.8 57.5,45.2 C57.5,48.6 59.5,51.4 62,51.4 C64.5,51.4 66.5,48.6 66.5,45.2 C66.5,41.8 64.5,39 62,39 Z" />
+
+    <!-- Toe 4 (Rightmost) -->
+    <path
+        android:fillColor="#F0F0F0"
+        android:pathData="M71,47 C68.5,47 66.5,49.5 66.5,52.5 C66.5,55.5 68.5,58 71,58 C73.5,58 75.5,55.5 75.5,52.5 C75.5,49.5 73.5,47 71,47 Z" />
+
+    <!-- Signature "Red Line" Sleek Dynamic Curve -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M30,81 C42,86 66,86 78,81 C78,83.5 66,88.5 54,88.5 C42,88.5 30,83.5 30,81 Z" />
+
+    <!-- Small Golden Luxury Crown Accent above Paw -->
+    <path
+        android:fillColor="#E0A96D"
+        android:pathData="M48,34 L54,30 L60,34 L58,36 L50,36 Z" />
+</vector>

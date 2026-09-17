@@ -1,0 +1,6 @@
+{
+  "name": "RedLine Pet",
+  "description": "اپلیکیشن تجاری و جامع مدیریت حیوانات خانگی با تقویم جلالی، اعداد فارسی و واحد پولی تومان",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
