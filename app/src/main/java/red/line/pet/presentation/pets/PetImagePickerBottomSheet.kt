@@ -3,7 +3,6 @@ package red.line.pet.presentation.pets
 import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -66,7 +65,7 @@ import red.line.pet.core.ui.AssetImageHelper
 /**
  * Premium Bottom Sheet for selecting pet avatar:
  * 1. Default high-resolution avatars (Dog, Cat, Bird, Rabbit, Rodent, Horse, Other)
- * 2. System Photo Picker (Gallery)
+ * 2. System Gallery (ACTION_GET_CONTENT)
  * 3. Camera Capture
  * 4. Remove / Reset custom photo
  */
@@ -85,9 +84,9 @@ fun PetImagePickerBottomSheet(
 
     var cameraTempUri by remember { mutableStateOf<Uri?>(null) }
 
-    // Modern Android Photo Picker (zero broad storage permissions)
+    // Gallery Picker (system gallery chooser via ACTION_GET_CONTENT)
     val galleryLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.PickVisualMedia()
+        contract = ActivityResultContracts.GetContent()
     ) { uri ->
         if (uri != null) {
             isProcessing = true
@@ -162,7 +161,7 @@ fun PetImagePickerBottomSheet(
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "یک عکس از گالری، دوربین یا آواتارهای پیشفرض پتورا انتخاب کنید",
+                        text = "یک عکس از گالری، دوربین یا آواتارهای پیش‌فرض پتورا انتخاب کنید",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -192,9 +191,12 @@ fun PetImagePickerBottomSheet(
                     modifier = Modifier.weight(1f),
                     onClick = {
                         if (!isProcessing) {
-                            galleryLauncher.launch(
-                                PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                            )
+                            try {
+                                galleryLauncher.launch("image/*")
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                Toast.makeText(context, "گالری در دسترس نیست", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
                 )

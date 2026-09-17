@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RedLine Pet</string>
+    <string name="app_name">Petora</string>
     <string name="nav_pets">حیوانات من</string>
     <string name="nav_health">پرونده سلامت</string>
     <string name="nav_expenses">هزینه‌ها</string>

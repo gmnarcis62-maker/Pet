@@ -126,8 +126,22 @@ class RemindersViewModel(
             isEnabled = true
         )
 
-        addReminderUseCase(r1)
-        addReminderUseCase(r2)
+        when (val res1 = addReminderUseCase(r1)) {
+            is AppResult.Success -> {
+                AlarmScheduler.schedule(appContext, r1.copy(id = res1.data))
+            }
+            is AppResult.Error -> {
+                android.util.Log.e("RemindersVM", "Failed to seed r1: ${res1.message}")
+            }
+        }
+        when (val res2 = addReminderUseCase(r2)) {
+            is AppResult.Success -> {
+                AlarmScheduler.schedule(appContext, r2.copy(id = res2.data))
+            }
+            is AppResult.Error -> {
+                android.util.Log.e("RemindersVM", "Failed to seed r2: ${res2.message}")
+            }
+        }
     }
 
     private fun observeRemindersForSelectedPet() {

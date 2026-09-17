@@ -1,22 +1,32 @@
-*.iml
-.gradle
-.kotlin
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Gradle
+.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Kotlin
+.kotlin/
+
+# Android
 local.properties
-.env
+*.apk
+*.aab
+*.ap_
+*.dex
 debug.keystore
-local.properties 
-debug.keystore 
-*.jks 
-*.keystore 
+*.jks
+*.keystore
+
+# Env
+.env
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Logs
+*.log
