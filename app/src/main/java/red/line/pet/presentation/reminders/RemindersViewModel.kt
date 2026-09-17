@@ -131,7 +131,7 @@ class RemindersViewModel(
                 AlarmScheduler.schedule(appContext, r1.copy(id = res1.data))
             }
             is AppResult.Error -> {
-                android.util.Log.e("RemindersVM", "Failed to seed r1: ${res1.message}")
+                android.util.Log.e("RemindersVM", "Failed to seed r1: ${res1.error}")
             }
         }
         when (val res2 = addReminderUseCase(r2)) {
@@ -139,7 +139,7 @@ class RemindersViewModel(
                 AlarmScheduler.schedule(appContext, r2.copy(id = res2.data))
             }
             is AppResult.Error -> {
-                android.util.Log.e("RemindersVM", "Failed to seed r2: ${res2.message}")
+                android.util.Log.e("RemindersVM", "Failed to seed r2: ${res2.error}")
             }
         }
     }
