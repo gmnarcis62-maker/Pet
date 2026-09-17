@@ -34,6 +34,16 @@ jobs:
       - name: Install xvfb (virtual display for KSP)
         run: sudo apt-get update && sudo apt-get install -y xvfb
 
+      - name: Configure Gradle memory (prevent KSP OOM crash)
+        run: |
+          echo "org.gradle.jvmargs=-Xmx6g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8" >> gradle.properties
+          echo "org.gradle.daemon=false" >> gradle.properties
+          echo "org.gradle.parallel=false" >> gradle.properties
+          echo "org.gradle.workers.max=2" >> gradle.properties
+          echo "kotlin.daemon.jvmargs=-Xmx3g" >> gradle.properties
+          echo "--- gradle.properties ---"
+          cat gradle.properties
+
       - name: Generate debug keystore
         run: |
           keytool -genkey -v -keystore debug.keystore \
@@ -45,11 +55,13 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build Debug APK
-        run: xvfb-run --auto-servernum ./gradlew assembleDebug --no-daemon --stacktrace
+        run: xvfb-run --auto-servernum ./gradlew assembleDebug --no-daemon --stacktrace --info
 
       - name: Upload APK
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Petora-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 30
+          if-no-files-found: warn
